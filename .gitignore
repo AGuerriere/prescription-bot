@@ -1,0 +1,6 @@
+.DS_Store
+bot_venv/
+.vscode/
+log.txt
+config.py
+__pycache__
