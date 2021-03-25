@@ -62,7 +62,7 @@ def order_prescriptions():
         driver.quit()
 
     #This is the final confirmation click - If you don't want to actually send the request, comment it out
-    '''try:
+    try:
         element = WebDriverWait(driver, 5).until(
             EC.presence_of_element_located((By.CSS_SELECTOR, "#ctl00_ContentPlaceHolder1_TabContainer1_Panel3_buttonSend"))
         )
@@ -76,13 +76,13 @@ def order_prescriptions():
         log_date.close()
 
     except:
-        driver.quit()'''
+        driver.quit()
 
 
     #This says out loud "it's done"
     os.system('say It is done')
     #This exits the program at the end. Comment it out if you want to stay on the last page before leaving.
-    sys.exit()
+    # sys.exit()
 
 root = tk.Tk()
 root.title('Prescription Bot')
