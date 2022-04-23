@@ -5,12 +5,20 @@ import os
 import sys
 # Config is a module I created to store the GP Url and credentials
 import config
+import chromedriver_auto_update
 import datetime # Datetime module needed to log the time and date of the last order in the log.txt file
 
 import tkinter as tk
 # since tkinter won't let you change background color when clicking button, 
 # we can use ttk, however even that is not perfect, and tkmacosx would be better but unnecessary in this case
 from tkinter import ttk
+
+
+# # update to the latest chromedriver
+print('updating homebrew' + '🍺')
+os.system('brew update')
+os.system('brew upgrade chromedriver')
+
 
 from selenium import webdriver
 #the following import allows the program to send text to the browser including enter.
@@ -21,7 +29,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 def order_prescriptions():
     #now we tell python where to find chromedriver on the computer
-    driver = webdriver.Chrome(config.PATH)
+    driver = webdriver.Chrome(chromedriver_auto_update.PATH)
 
     #This opens the target website
     driver.get(config.target_website)
@@ -82,7 +90,7 @@ def order_prescriptions():
     #This says out loud "it's done"
     os.system('say It is done')
     #This exits the program at the end. Comment it out if you want to stay on the last page before leaving.
-    # sys.exit()
+    sys.exit()
 
 root = tk.Tk()
 root.title('Prescription Bot')
